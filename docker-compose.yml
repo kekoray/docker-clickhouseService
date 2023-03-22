@@ -15,4 +15,4 @@ services:
       - /home/koray/soft/clickhouse/initdb:/docker-entrypoint-initdb.d/
       - /home/koray/soft/clickhouse/logs:/var/log/clickhouse-server
       - /home/koray/soft/clickhouse/conf/users.xml:/etc/clickhouse-server/users.xml 
-      - /home/koray/soft/clickhouse/conf/config.d/config.xml:/etc/clickhouse-server/config.xml 
+      - /home/koray/soft/clickhouse/conf/config.xml:/etc/clickhouse-server/config.xml 
