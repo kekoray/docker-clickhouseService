@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    container_name: clickhouse
+    restart: always
+    ports:
+      - 8123:8123
+      - 9000:9000
+      - 9009:9009
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /home/koray/soft/clickhouse/data:/var/lib/clickhouse 
+      - /home/koray/soft/clickhouse/initdb:/docker-entrypoint-initdb.d/
+      - /home/koray/soft/clickhouse/logs:/var/log/clickhouse-server
+      - /home/koray/soft/clickhouse/conf/users.xml:/etc/clickhouse-server/users.xml 
+      - /home/koray/soft/clickhouse/conf/config.d/config.xml:/etc/clickhouse-server/config.xml 
