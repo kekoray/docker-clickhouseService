@@ -9,7 +9,7 @@ services:
       - 9000:9000
       - 9009:9009
     volumes:
-      - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime
       - /home/koray/soft/clickhouse/data:/var/lib/clickhouse 
       - /home/koray/soft/clickhouse/initdb:/docker-entrypoint-initdb.d
       - /home/koray/soft/clickhouse/logs:/var/log/clickhouse-server
