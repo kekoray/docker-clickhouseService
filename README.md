@@ -1,6 +1,16 @@
 # docker-clickhouseService
 
 
+
+### Image版本说明
+
+| 版本                        | 节点数 | CPU架构 |
+| :-------------------------- | :----- | ------- |
+| koray2021/clickhouse:23.6.0 | 1      |         |
+
+
+
+
 ### 1.目录结构
 
 ```shell
@@ -16,38 +26,21 @@ docker-clickhouseService/
 
 
 
-### 2.compose文件
+### 2.Compose传参说明
 
-```yaml
-version: '3.1'
-services:
-  clickhouse:
-    image: clickhouse/clickhouse-server:latest
-    container_name: clickhouse
-    hostname: clickhouse
-    restart: always
-    ports:
-      - 8123:8123
-      - 9000:9000
-      - 9009:9009
-    volumes:
-      - /etc/localtime:/etc/localtime
-      - ./data:/var/lib/clickhouse 
-      - ./initdb:/docker-entrypoint-initdb.d
-      - ./conf/users.xml:/etc/clickhouse-server/users.xml
-      - ./conf/config.xml:/etc/clickhouse-server/config.xml
-      - ./logs:/var/log/clickhouse-server
+
+| 参数项            | 说明                                                | 传参方式                         |
+| ----------------- | --------------------------------------------------- | -------------------------------- |
+| \${user}    | 登录用户名 | \.env文件形式传参 |
+| \${passwd}   | 登录密码                        | \.env文件形式传参        |
+
+
+
+### 3.报错说明
+
+- 遇到文件创建的权限问题，则要对整个目录进行权限降级；
+
+```shell
+sudo chmod 777 docker-clickhouseService/ -R
 ```
-
-
-
-### 3.构建修改项
-
-| 修改项           | 文件      | 修改项   |
-| ---------------- | --------- | -------- |
-| 1.数据库用户配置 | users.xml | \<users> |
-
-
-
-
 
