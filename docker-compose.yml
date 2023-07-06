@@ -12,9 +12,9 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime
       - ./data:/var/lib/clickhouse 
-      - ./conf/users.xml:/etc/clickhouse-server/users.xml 
-      - ./conf/config.xml:/etc/clickhouse-server/config.xml  
-      - ./logs:/var/log/clickhouse-server
+      - ./conf/users.xml:/opt/bitnami/clickhouse/etc/users.xml 
+      - ./conf/config.xml:/opt/bitnami/clickhouse/etc/config.xml  
+      - ./logs:/opt/bitnami/clickhouse/logs
       - ./initdb:/docker-entrypoint-initdb.d
     environment:
       - CLICKHOUSE_ADMIN_USER=${user}
