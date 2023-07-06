@@ -369,6 +369,34 @@
     -->
     <!-- <tmp_policy>tmp</tmp_policy> -->
 
+    <!-- 热数据一般为最近几天或几周的数据,访问频率最高,通常采用SSD作为存储介质,达到存储时长后,会自动迁移至温数据区；
+         而温数据一般为数月之内的数据,访问频次相对较低,通常采用普通机械盘作为存储介质
+     -->
+    <storage_configuration>
+            <disks>
+                <disk_hot>
+                    <path>/var/lib/clickhouse/disk_hot/</path>
+                </disk_hot>
+                <disk_cold>
+                    <path>/var/lib/clickhouse/disk_cold/</path>
+                </disk_cold>
+            </disks>
+
+            <policies>
+                <moving_from_hot_to_cold>
+                    <volumes>
+                        <hot>
+                           <disk>disk_hot</disk>
+                        </hot>
+                        <cold>
+                           <disk>disk_cold</disk>
+                        </cold>
+                    </volumes>
+                </moving_from_hot_to_cold>
+            </policies>
+    </storage_configuration>
+
+
     <!-- Directory with user provided files that are accessible by 'file' table function. -->
     <user_files_path>/var/lib/clickhouse/user_files/</user_files_path>
 
