@@ -10,7 +10,7 @@ docker-clickhouseService/
 │   ├── config.xml    # 配置文件
 │   └── users.xml     # 用户配置文件
 ├── data              # 数据目录
-├── initdb            # 数据库初始化文件
+├── initdb            # 初始化数据库脚本
 └── logs              # 日志目录
 ```
 
