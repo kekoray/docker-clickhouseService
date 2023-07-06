@@ -17,5 +17,6 @@ services:
       - ./logs:/var/log/clickhouse-server
       - ./initdb:/docker-entrypoint-initdb.d
     environment:
+      - CLICKHOUSE_ADMIN_USER=${user}
       - CLICKHOUSE_ADMIN_PASSWORD=${passwd}
 
