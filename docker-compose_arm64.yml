@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+  clickhouse:
+    image: koray2021/clickhouse:22.3.4-arm64
+    container_name: clickhouse
+    hostname: clickhouse
+    restart: always
+    ports:
+      - 8123:8123
+      - 9000:9000
+      - 9009:9009
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./data:/var/lib/clickhouse
+      - ./conf/users.xml:/etc/clickhouse-server/users.xml
+      - ./conf/config.xml:/etc/clickhouse-server/config.xml
+      - ./logs:/var/log/clickhouse-server
+      - ./initdb:/docker-entrypoint-initdb.d
+    environment:
+      - CLICKHOUSE_USER=${user}
+      - CLICKHOUSE_PASSWORD=${passwd}
