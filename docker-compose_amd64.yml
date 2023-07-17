@@ -19,3 +19,11 @@ services:
     environment:
       - CLICKHOUSE_ADMIN_USER=${user}
       - CLICKHOUSE_ADMIN_PASSWORD=${passwd}
+    networks:
+        default:
+            ipv4_address: 192.168.5.11
+
+networks:
+  default:
+    external: true
+    name: unite_net
