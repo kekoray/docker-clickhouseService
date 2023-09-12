@@ -21,7 +21,7 @@ services:
       - CLICKHOUSE_PASSWORD=${passwd}
     networks:
         default:
-            ipv4_address: 192.168.5.11
+            ipv4_address: 192.168.5.50
 
 # docker network create --driver bridge --subnet 192.168.5.0/25 --gateway 192.168.5.1  unite_net
 
